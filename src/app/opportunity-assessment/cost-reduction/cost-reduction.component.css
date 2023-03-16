@@ -1,0 +1,24 @@
+.portal-drivers {
+    overflow-x: scroll;
+    max-width: 100%;
+    display: block;
+    white-space: nowrap;
+    border-right: 1px solid #dee2e6 ;
+}
+ .portal-drivers td{
+    padding:0 !important;
+    font-size:12px;;
+    text-align: right;
+}
+.portal-drivers th{
+    min-width:100px;
+    height: 50px;
+    text-align: center;
+}
+.portal-drivers td span{
+
+    padding: 0.5rem 0.5rem;
+    display: inline-block;
+   
+    text-align: center;
+}

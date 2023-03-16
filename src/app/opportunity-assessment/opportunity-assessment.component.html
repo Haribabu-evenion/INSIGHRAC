@@ -1,0 +1,247 @@
+
+<!-- <app-filter></app-filter> -->
+<div class="row">
+  <div class="col-md-10">
+  <h5 *ngIf="value == 'Saving'"> Saving Value</h5>
+  <h5 *ngIf="value == 'percentage'"> Sourceable Spend</h5>
+  <h5 *ngIf="value == 'percentage1'">Cost Reduction</h5>
+  <h5 *ngIf="value == 'percentage2'">Cost Avoidance</h5>
+</div>
+<div class="col-md-2" style="text-align:right;"> 
+  <button type="button" class="btn"(click)="openModal(template)">
+    <img src="../assets/icons/filter_icon.png" />
+  </button>
+</div>
+
+<ng-template #template>
+  <div class="modal-body">
+    <!-- Main Table Column option -->
+    <button type="button" class="btn " (click)=" categorySavingEstimatesMenuOption.isCollapsed ? categorySavingEstimatesMenuOption.show() : categorySavingEstimatesMenuOption.hide()"
+        [attr.aria-expanded]="!categorySavingEstimatesMenuOption.isCollapsed" aria-controls="collapseBasic">Category Saving 
+  </button>
+  <div id="collapseBasic" #categorySavingEstimatesMenuOption="bs-collapse" [collapse]="true">
+    <ng-container *ngFor="let column of tableColumns; let row=index;">
+      <div class="menu-item">{{column.name}}
+        <span style="float: right;">
+          <ng-container *ngIf="column.value !== true;else activeIcon">
+            <span  (click)="toggleColumn(row)">
+              <img style="float: right;" src="../assets/icons/eye_disabled.png"/>
+            </span>
+          </ng-container>
+          <ng-template #activeIcon>
+            <span  (click)="toggleColumn(row)">
+              <img style="float: right;" src="../assets/icons/eye_active.png" />
+            </span>
+          </ng-template>
+        </span>
+      </div> 
+    </ng-container>
+  </div>
+
+
+    <!-- SavingValue column option -->
+    <button type="button" class="btn " (click)=" savingValueMenuOption.isCollapsed ? savingValueMenuOption.show() : savingValueMenuOption.hide()"
+        [attr.aria-expanded]="!savingValueMenuOption.isCollapsed" aria-controls="collapseBasic">Saving value
+    </button>
+    <div id="collapseBasic" #savingValueMenuOption="bs-collapse" [collapse]="true">
+      <ng-container *ngFor="let column of savingValueTableColumns; let row=index;">
+        <div class="menu-item">{{column.name}}
+          <span style="float: right;">
+            <ng-container *ngIf="column.value !== true;else activeIcon">
+              <span  (click)="toggleSavingValueTable(row)">
+                <img style="float: right;" src="../assets/icons/eye_disabled.png"/>
+              </span>
+            </ng-container>
+            <ng-template #activeIcon>
+              <span  (click)="toggleSavingValueTable(row)">
+                <img style="float: right;" src="../assets/icons/eye_active.png" />
+              </span>
+            </ng-template>
+          </span>
+        </div> 
+      </ng-container>
+    </div>
+
+    <!-- Sourceable SpendTable column option -->
+    <button type="button" class="btn " (click)=" sourceableSpendMenuOption.isCollapsed ? sourceableSpendMenuOption.show() : sourceableSpendMenuOption.hide()"
+        [attr.aria-expanded]="!sourceableSpendMenuOption.isCollapsed" aria-controls="collapseBasic">Sourceable Spend
+    </button>
+    <div id="collapseBasic" #sourceableSpendMenuOption="bs-collapse" [collapse]="true">
+      <ng-container *ngFor="let column of sourceableSpendTableColumns; let row=index;">
+        <div class="menu-item">{{column.name}} 
+          <span style="float: right;">
+            <ng-container *ngIf="column.value !== true;else activeIcon">
+              <span  (click)="toggleSourceableSpendTable(row)">
+                <img style="float: right;" src="../assets/icons/eye_disabled.png"/>
+              </span>
+            </ng-container>
+            <ng-template #activeIcon>
+              <span  (click)="toggleSourceableSpendTable(row)">
+                <img style="float: right;" src="../assets/icons/eye_active.png" />
+              </span>
+            </ng-template>
+          </span>
+        </div> 
+      </ng-container>
+    </div>
+
+
+   <!--Cost Reduction column option -->
+   <button type="button" class="btn " (click)=" costReductionMenuOption.isCollapsed ? costReductionMenuOption.show() : costReductionMenuOption.hide()"
+   [attr.aria-expanded]="!costReductionMenuOption.isCollapsed" aria-controls="collapseBasic">Cost Reduction
+</button>
+<div id="collapseBasic" #costReductionMenuOption="bs-collapse" [collapse]="true">
+ <ng-container *ngFor="let column of sourceableSpendTableColumns; let row=index;">
+   <div class="menu-item">{{column.name}} 
+     <span style="float: right;">
+       <ng-container *ngIf="column.value !== true;else activeIcon">
+         <span  (click)="toggleSourceableSpendTable(row)">
+           <img style="float: right;" src="../assets/icons/eye_disabled.png"/>
+         </span>
+       </ng-container>
+       <ng-template #activeIcon>
+         <span  (click)="toggleSourceableSpendTable(row)">
+           <img style="float: right;" src="../assets/icons/eye_active.png" />
+         </span>
+       </ng-template>
+     </span>
+   </div> 
+ </ng-container>
+</div>
+
+<!-- Cost Avoidance column option -->
+<button type="button" class="btn " (click)=" costAvoidanceMenuOption.isCollapsed ? costAvoidanceMenuOption.show() : costAvoidanceMenuOption.hide()"
+[attr.aria-expanded]="!costAvoidanceMenuOption.isCollapsed" aria-controls="collapseBasic">Cost Avoidance
+</button>
+<div id="collapseBasic" #costAvoidanceMenuOption="bs-collapse" [collapse]="true">
+<ng-container *ngFor="let column of sourceableSpendTableColumns; let row=index;">
+<div class="menu-item">{{column.name}} 
+  <span style="float: right;">
+    <ng-container *ngIf="column.value !== true;else activeIcon">
+      <span  (click)="toggleSourceableSpendTable(row)">
+        <img style="float: right;" src="../assets/icons/eye_disabled.png"/>
+      </span>
+    </ng-container>
+    <ng-template #activeIcon>
+      <span  (click)="toggleSourceableSpendTable(row)">
+        <img style="float: right;" src="../assets/icons/eye_active.png" />
+      </span>
+    </ng-template>
+  </span>
+</div> 
+</ng-container>
+
+
+</div>
+
+</div>
+</ng-template>
+
+
+
+
+
+<div class="card" >
+  <div class="row" >
+    <div class="col-sm-6 px-0">
+      <div class="bg-success ">
+          <ul class="nav nav-pills nav-fill">
+            <li class="nav-item">
+              <a class="nav-link" href="#" aria-current="page" style="color: rgb(6, 107, 16);">Category Saving Estimates</a>
+            </li>
+          </ul>
+      </div>
+  </div>
+  <div class="col-sm-6  px-0 savings">
+    <div class="bg-success border-transparent ">
+      <ul class="nav nav-tabs" >
+        <li class="nav-item" (click)="showHideTables('Saving')"> 
+          <a  class="nav-link" [class.active]="value=='Saving'" href="#" style="color: rgb(6, 107, 16);" data-toggle="tab">Saving Value</a>
+        </li>
+        <li class="nav-item" (click)="showHideTables('percentage')">
+          <a class="nav-link" href="#" [class.active]="value=='percentage'" style="color: rgb(6, 107, 16);" data-toggle="tab">Sourceable Spend</a>
+        </li>
+        <li class="nav-item" (click)="showHideTables('percentage1')">
+          <a class="nav-link" href="#" [class.active]="value=='percentage1'" style="color: rgb(6, 107, 16);" data-toggle="tab">Cost Reduction</a>
+        </li>
+        <li class="nav-item" (click)="showHideTables('percentage2')">
+          <a class="nav-link" href="#" [class.active]="value=='percentage2'" style="color: rgb(6, 107, 16);" data-toggle="tab">Cost Avoidance</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  </div>
+  
+  <div class="row">
+  <div class="col-sm-6 table-seperate">
+    <table class="table table-striped portal-drivers"  datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger">
+      <thead style="text-align:center" height="66px" padding-bottom:7px> 
+      <tr>
+          <th  *ngFor="let data of categorySavingEstimatesData?.columns;index as i">
+            
+            <div *ngIf="i==7||i==6; else loggedOut">
+              <span class="text-center" >
+                {{data}}   <br> <span class="me-5">min</span> <span>max</span>
+            </span>      
+            </div>            
+            <ng-template #loggedOut>
+              {{data}}
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-up" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M8 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L7.5 2.707V14.5a.5.5 0 0 0 .5.5z"/>
+              </svg>
+            </ng-template>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="row-item-pending" role="row"  *ngFor="let rowData of categorySavingEstimatesData?.data ">
+          <td *ngFor="let cellData of rowData ; index as i">
+            <div *ngIf="i==7||i==6; else loggedOut">
+              <span sstyle="margin-right: 9px !important;" class="me-5">
+                {{cellData.min}} 
+            </span>
+            <span style="margin-right: 9px !important;" class="me-5">
+                {{cellData.max}}
+            </span>    
+            </div> 
+            
+            <ng-template #loggedOut>
+              {{cellData}}
+            </ng-template>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="col-sm-6 px-0" [style.display]="value == 'Saving' ? '' : 'none'">
+    <app-saving-value [filterOption]="savingValueTableColumns"></app-saving-value>
+  </div> 
+  <div class="col-sm-6 px-0" [style.display]="value == 'percentage' ? '' : 'none'">
+    <app-sourceable-spend [filterOption]="sourceableSpendTableColumns"></app-sourceable-spend>
+  </div> 
+  <div class="col-sm-6 px-0" [style.display]="value == 'percentage1' ? '' : 'none'">
+    <app-cost-reduction [filterOption]="costReductionTableColumns"></app-cost-reduction>
+  </div> 
+  <div class="col-sm-6 px-0" [style.display]="value == 'percentage2' ? '' : 'none'">
+    <app-cost-avoidance [filterOption]="costAvoidanceTableColumns"></app-cost-avoidance>
+  </div>
+</div>
+
+
+ 
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   

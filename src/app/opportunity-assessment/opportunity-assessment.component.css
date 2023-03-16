@@ -1,0 +1,111 @@
+div.container {
+    width: 30%;
+}
+
+.td-small {
+    width: 20px;
+    max-width: 20px;
+  }
+
+  .portal-drivers {
+    overflow-x: scroll;
+    max-width: 100%;
+    display: block;
+    white-space: nowrap;
+    text-align: center;
+}
+
+
+.active{
+  color: #99e77a;
+  background-color: red;
+  text-decoration: none;
+}
+
+.modal-align-right {
+  top: 2%;
+  width: 18%;
+  left: 41%;
+}
+.table>thead {
+  vertical-align: middle !important;
+}
+
+
+
+#exTab1 .tab-content {
+  color : white;
+  background-color: #428bca;
+  padding : 5px 15px;
+}
+
+#exTab2 h3 {
+  color : white;
+  background-color: #428bca;
+  padding : 5px 15px;
+}
+
+/* remove border radius for the tab */
+
+#exTab1 .nav-pills > li > a {
+  border-radius: 0;
+}
+
+/* change border radius for the tab , apply corners on top*/
+
+#exTab3 .nav-pills > li > a {
+  border-radius: 4px 4px 0 0 ;
+}
+
+#exTab3 .tab-content {
+  color : white;
+  background-color: #428bca;
+  padding : 5px 15px;
+}
+
+.portal-drivers td{
+  font-size:12px;;
+}
+
+.portal-drivers th{
+  min-width:120px;
+}
+
+.table-seperate{
+  border-right: 1px solid #178717;
+  border-left: 1px solid #dfdcdc;
+  box-shadow: 4px -2px 2px -3px #178717;
+}
+.bg-success{
+  border-left: 1px solid rgb(23, 135, 23);
+    background-color: rgb(202, 226, 220) !important;
+    border-top: 1px solid rgb(23, 135, 23);
+}
+.card{
+  /*margin: 15px;*/
+    padding: 0 15px;
+    background: #fff;
+    border: 0;
+}
+.table-seperate svg{
+  color: #999999;
+}
+.border-transparent{
+  border-top: transparent;
+}
+.savings .nav.nav-tabs{
+  border-bottom: 1px solid green;
+}
+.savings .nav-link.active{
+  color: rgb(6, 107, 16);
+  background: #cae2dc;
+  border-left: 1px solid green;
+  /* border-bottom: 1px solid green; */
+  border-top: 1px solid green;
+  border-right: 1px solid green;
+  border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+.savings .nav-item:first-child .active{
+  border-left: 1px solid transparent;
+}

@@ -1,0 +1,26 @@
+<table  class="table table-striped portal-drivers" datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" >
+    <thead>
+      <tr>
+        <th  *ngFor="let column of tableData?.columns" class="px-0">
+            <div class="d-flex justify-content-left align-items-center" style="margin-left: 8px;">
+            <span class="text-center" >
+                {{column}}    <br> <span class="me-5">min</span> <span>max</span>
+            </span>
+        </div>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let rowData of tableData?.data; let rowIndex = index;">
+        <td *ngFor="let cellData of rowData; let cellIndex = index;">
+            <span class="me-4">
+                {{cellData.min}} 
+            </span>
+            <span class="me-4">
+                {{cellData.max}}
+            </span>
+        </td>
+      </tr>
+    </tbody>
+  </table> 
+

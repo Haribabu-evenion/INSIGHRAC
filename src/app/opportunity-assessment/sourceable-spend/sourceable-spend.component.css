@@ -1,0 +1,12 @@
+
+
+ .portal-drivers td{
+    font-size:12px;
+    text-align: center;
+}
+
+.portal-drivers th{
+    min-width:110px;
+    height: 50px;
+    text-align: center;
+}
